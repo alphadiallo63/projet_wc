@@ -221,3 +221,29 @@ dict_status_t dict_get_value(const dict_t *dict, const void *key, size_t key_len
     *value_len = ret->value_len;
     return DICT_OK;
 }
+
+void dict_foreach(const dict_t *dict,
+    void (*callback)(const char *key, int value, void *arg),
+    void *arg)
+{
+if (!dict || !callback) return;
+for (size_t i = 0; i < dict->table_len; i++) {
+const dict_entry_t *cur = dict->table[i];
+while (cur) {
+int val = cur->value ? *(int *)cur->value : 0;
+callback((const char *)cur->raw_key, val, arg);
+cur = cur->next;
+}
+}
+}
+
+static void print_entry(const char *key, int value, void *arg)
+{
+(void)arg;
+printf("  %-30s : %d\n", key, value);
+}
+
+void dict_print(const dict_t *dict)
+{
+dict_foreach(dict, print_entry, NULL);
+}

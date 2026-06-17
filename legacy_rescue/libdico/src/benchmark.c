@@ -163,7 +163,8 @@ int main(void)
     printf("Durée par recherche : %.2f ns\n", ns_per_find);
 
     /* ------------------------------------------------------------------ */
-    /* NETTOYAGE                                                           */
+    /* NETTOYAGE                                                       */
+    
     /* ------------------------------------------------------------------ */
     dict_destroy(dico);
     for (size_t i = 0; i < word_count; i++)

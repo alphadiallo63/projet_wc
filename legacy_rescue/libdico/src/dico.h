@@ -63,6 +63,12 @@ dict_status_t dict_add(dict_t *dict, void *key, size_t key_len,
  */
 dict_status_t dict_contains(const dict_t *dict, const void *key, size_t key_len);
 
+void dict_foreach(const dict_t *dict,
+    void (*callback)(const char *key, int value, void *arg),
+    void *arg);
+
+void dict_print(const dict_t *dict);
+
 /*
  * Récupère la valeur associée à une clé.
  *
