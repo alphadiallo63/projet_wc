@@ -1,5 +1,6 @@
 CC         = gcc
 CFLAGS     = -Wall -Wextra -Werror -g -fPIC -I./src
+//LDFLAGS    = -shared -install_name @rpath/libdico.so
 LDFLAGS    = -shared -install_name @rpath/libdico.so
 
 SRC        = src/dico.c

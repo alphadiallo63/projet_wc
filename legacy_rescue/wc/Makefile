@@ -1,6 +1,7 @@
 CC       = gcc
 CFLAGS   = -Wall -Wextra -Werror -g -I./src -I../libdico/src
-LDFLAGS  = -L../libdico/lib -ldico -Wl,-rpath,$(abspath ../libdico/lib)
+//LDFLAGS  = -L../libdico/lib -ldico -Wl,-rpath,$(abspath ../libdico/lib)
+LDFLAGS  = -L../libdico/lib -ldico -Wl,-rpath,@loader_path/../../libdico/lib
 
 OBJ      = src/main.o src/wc_core.o
 EXEC     = bin/wc
